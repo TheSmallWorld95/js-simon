@@ -8,7 +8,8 @@
 
 // Scrivo con un innerHTML 5 numeri generati casualmente(fun Randomnumber)
 var randomNumbers = []
-var userNumbers = []
+var wrongNumbers = []
+var correctNumbers = []
 for (var i = 0; i < 5; i++) {
   randomNumberInRange(1, 100)
   randomNumbers.push(parseInt(randomNumberInRange(1, 100)))
@@ -24,22 +25,27 @@ $("#random-number").hide()
   // volta all'utente (prompt) un numero che ha visto precedentemente
     for (var i = 0; i < 5; i++) {
     var userNumber = parseInt(prompt("Inserisci uno dei numeri visti in precedenza"))
-    userNumbers.push(parseInt(userNumber))
+      if (userNumber == randomNumbers[i]) {
+        correctNumbers.push(parseInt(userNumber))
+      } else {
+        wrongNumbers.push(parseInt(userNumber))
+      }
+
+      $("#random-number").show()
+
+      $("#random-number").text(randomNumbers);
+
+      $("#correct-number").text(correctNumbers);
+
+      $("#wrong-number").text(wrongNumbers);
     }
-    $("#random-number").show()
-
-    $("#random-number").text(randomNumbers);
-
-    $("#user-number").text(userNumbers);
   })
 }, 2000)
 // Stampo nuovamente array numeri casuali e numeri dell'utente
   // Scrivo quali e quanti numeri sono stati indovinati
   // Es. (verdi numeri indovinati) rossi (errati)
-  //
-  // $("#random-number").text(randomNumbers);
-  //
-  // $("#user-number").text(userNumbers);
+
+
 
 
 
