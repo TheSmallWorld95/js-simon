@@ -11,27 +11,36 @@ var randomNumbers = []
 var userNumbers = []
 for (var i = 0; i < 5; i++) {
   randomNumberInRange(1, 100)
-  randomNumbers.push(" " + randomNumberInRange(1, 100) + " ")
+  randomNumbers.push(parseInt(randomNumberInRange(1, 100)))
 }
 
 $("#random-number").text(randomNumbers);
 // Faccio partire un timer (setTimeout) di duration (30s)
   // Faccio scomparire l'array di numeri casuali dal documento
 setTimeout(function () {
-$("#random-number").addClass("active")
+$("#random-number").hide()
   setTimeout(function () {
   // Con un ciclo (for,while) di 5 volte faccio inserire ogni
   // volta all'utente (prompt) un numero che ha visto precedentemente
     for (var i = 0; i < 5; i++) {
     var userNumber = parseInt(prompt("Inserisci uno dei numeri visti in precedenza"))
-    userNumbers.push(" " + userNumber + " ")
-    $("#user-number").text(userNumbers);
+    userNumbers.push(parseInt(userNumber))
     }
+    $("#random-number").show()
+
+    $("#random-number").text(randomNumbers);
+
+    $("#user-number").text(userNumbers);
   })
-}, 30000)
+}, 2000)
 // Stampo nuovamente array numeri casuali e numeri dell'utente
   // Scrivo quali e quanti numeri sono stati indovinati
   // Es. (verdi numeri indovinati) rossi (errati)
+  //
+  // $("#random-number").text(randomNumbers);
+  //
+  // $("#user-number").text(userNumbers);
+
 
 
 
