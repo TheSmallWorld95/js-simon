@@ -25,7 +25,7 @@ $("#random-number").hide()
   // volta all'utente (prompt) un numero che ha visto precedentemente
     for (var i = 0; i < 5; i++) {
     var userNumber = parseInt(prompt("Inserisci uno dei numeri visti in precedenza"))
-      if (userNumber == randomNumbers[i]) {
+      if (randomNumbers.includes(userNumber)) {
         correctNumbers.push(parseInt(userNumber))
       } else {
         wrongNumbers.push(parseInt(userNumber))
@@ -40,7 +40,7 @@ $("#random-number").hide()
       $("#wrong-number").text(wrongNumbers);
     }
   })
-}, 2000)
+}, 30000)
 // Stampo nuovamente array numeri casuali e numeri dell'utente
   // Scrivo quali e quanti numeri sono stati indovinati
   // Es. (verdi numeri indovinati) rossi (errati)
